@@ -1,0 +1,10 @@
+Our batch-processing pipeline takes the raw 2024 Citi Bike trip logs (monthly CSV exports) and turns them into clean, 
+analytics-ready tables that we can reuse across the rest of the assignment. Concretely, the pipeline parses timestamps, 
+computes trip-level features (such as trip duration, date and hour), filters out obviously bad records, 
+and aggregates the trips into station- and day-level usage statistics (number of trips, average trip duration, 
+member vs. casual split, etc.).
+
+The main purpose is to create a stable “curated” layer on top of the raw data that is optimised for analysis and dashboards, 
+rather than for storage or ingestion. These curated tables will later be loaded into BigQuery and connected to Looker Studio, 
+where we can quickly build visualisations about demand patterns, station performance and differences between user types, 
+without re-running heavy transformations in each notebook or report.
